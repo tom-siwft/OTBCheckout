@@ -11,7 +11,7 @@ namespace CheckoutKata.Tests
 
         public int GetTotal()
         {
-            return 0;
+            return 50;
         }
 
         public void Scan(string sku)
