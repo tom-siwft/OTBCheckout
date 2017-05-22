@@ -35,7 +35,7 @@ namespace CheckoutKata.Tests
 
                     if (timesToRunOffer > 0)
                     {
-                        var offerPrice = _data.items.Where(x => x.SKU == sku && x.SpecialCondition == quantity).Select(x => x.SpecialPrice ?? 0).First();
+                        var offerPrice = _data.items.Where(x => x.SKU == sku).Select(x => x.SpecialPrice ?? 0).First();
                         for (int i = 0; i < timesToRunOffer; i++)
                         {
                             total += offerPrice;
