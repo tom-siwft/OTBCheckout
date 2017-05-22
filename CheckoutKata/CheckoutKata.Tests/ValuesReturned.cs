@@ -9,6 +9,7 @@ namespace CheckoutKata.Tests
         public void A_Returns_Correct_Single_Value()
         {
             var checkout = new Checkout();
+            checkout.Scan("A");
             int value = checkout.GetTotal();
             Assert.AreEqual(value, 50);
         }
@@ -16,6 +17,7 @@ namespace CheckoutKata.Tests
         public void B_Returns_Correct_Single_Value()
         {
             var checkout = new Checkout();
+            checkout.Scan("B");
             int value = checkout.GetTotal();
             Assert.AreEqual(value, 30);
         }
@@ -23,6 +25,7 @@ namespace CheckoutKata.Tests
         public void C_Returns_Correct_Single_Value()
         {
             var checkout = new Checkout();
+            checkout.Scan("C");
             int value = checkout.GetTotal();
             Assert.AreEqual(value, 20);
         }
@@ -30,6 +33,7 @@ namespace CheckoutKata.Tests
         public void D_Returns_Correct_Single_Value()
         {
             var checkout = new Checkout();
+            checkout.Scan("D");
             int value = checkout.GetTotal();
             Assert.AreEqual(value, 15);
         }
