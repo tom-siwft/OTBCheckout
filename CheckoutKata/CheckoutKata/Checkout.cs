@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CheckoutKata.Tests
+namespace CheckoutKata
 {
-    internal class Checkout : ICheckout
+    public class Checkout : ICheckout
     {
         private readonly List<string> _skus;
         private readonly Data _data;
@@ -17,22 +17,17 @@ namespace CheckoutKata.Tests
         public int GetTotal()
         {
             int total = 0;
-            //order and group skus
             var groupedSKUList = _skus.GroupBy(s => s);
-
             foreach (var group in groupedSKUList)
             {
                 var sku = group.Key.ToString().ToUpper();
-                //get sku quantity
                 var quantity = group.Count();
-                //if offer is triggered calculate remainder
                 int SpecialCondition = Convert.ToInt32(_data.items.Where(c => c.SKU == sku).Select(c => c.SpecialCondition ?? 0).First());
                 if (SpecialCondition > 0)
                 {
                     int timesToRunOffer = quantity / SpecialCondition;
                     int remainder;
                     int q = Math.DivRem(quantity, SpecialCondition, out remainder);
-
                     if (timesToRunOffer > 0)
                     {
                         var offerPrice = _data.items.Where(x => x.SKU == sku).Select(x => x.SpecialPrice ?? 0).First();
@@ -41,7 +36,6 @@ namespace CheckoutKata.Tests
                             total += offerPrice;
                         }
                     }
-
                     if (remainder > 0)
                     {
                         var item = _data.items.FirstOrDefault(i => i.SKU == group.Key.ToString());

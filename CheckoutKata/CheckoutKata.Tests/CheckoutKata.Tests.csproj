@@ -48,9 +48,6 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Checkout.cs" />
-    <Compile Include="Data.cs" />
-    <Compile Include="ICheckout.cs" />
     <Compile Include="KataRecommended.cs" />
     <Compile Include="OffersCalculated.cs" />
     <Compile Include="ValuesReturned.cs" />
@@ -58,6 +55,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CheckoutKata\CheckoutKata.csproj">
+      <Project>{93146b1d-0c55-4a2c-9a7c-1fd82f4b3135}</Project>
+      <Name>CheckoutKata</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

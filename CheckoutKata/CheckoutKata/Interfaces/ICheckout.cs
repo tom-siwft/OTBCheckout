@@ -1,5 +1,5 @@
-﻿namespace CheckoutKata.Tests
-{
+﻿namespace CheckoutKata
+{ 
     public interface ICheckout
     {
         void Scan(string sku);
